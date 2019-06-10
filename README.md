@@ -70,7 +70,7 @@ var output = fs.createWriteStream(__dirname + '/output.txt');
 
 input
     // delete 5 lines from beginning of file
-    .pipe(deletePartialStream(5))
+    .pipe(deletePartialStream({ lines: 5 }))
     .pipe(output);
 ```
 
