@@ -59,10 +59,7 @@ $ yarn add node-delete-partial
 ## :tada: Large File Usage Example
 
 ```javascript
-"use strict";
-
 var { deletePartialStream } = require('node-delete-partial');
-
 var fs = require('fs');
 
 var input = fs.createReadStream(__dirname + '/input.txt');
@@ -86,8 +83,6 @@ input
 ## :tada: Small File Usage Example
 
 ```javascript
-"use strict";
-
 var { deletePartial } = require('node-delete-partial');
 
 var filePath = __dirname + '/file.txt';
@@ -104,7 +99,7 @@ deletePartial(filePath, { lines: 5 });
 <br/>
 <br/>
 
-## :nut_and_bolt: API
+# :nut_and_bolt: API
 
 <br/>
 
@@ -120,7 +115,7 @@ options | number | NO | See below.
 
 Valid options keys are:
 
-- "lines" (number) - From beginning of file, the number of lines to delete. Default is `1`.
+- "lines" (number) - Delete the number of lines from the beginning of the file. Default is `1`.
 
 <br/>
 
@@ -137,7 +132,7 @@ options | number | NO | See below.
 
 Valid options keys are:
 
-- "lines" (number) - From beginning of file, the number of lines to delete. Default is `1`.
+- "lines" (number) - Delete the number of lines from the beginning of the file. Default is `1`.
 
 <br/>
 <br/>
