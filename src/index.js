@@ -88,23 +88,28 @@ function deletePartialSync (arg1, arg2, arg3) {
             data = data.toString();
             // console.log(data.split("\n").length)
 
-            var i = 0;
-            var inProgress = true;
-            do {
-                i++;
-                var position = data.toString().indexOf("\n");
-                if (position !== -1) {
-                    data = data.substr(position + 1);
-                } else {
-                    inProgress = false;
-                }
-            } while (i < lines && inProgress);
+            const deleteLines = new Promise(function (resolve, reject) {
+                var i = 0;
+                var inProgress = true;
+                do {
+                    i++;
+                    var position = data.toString().indexOf("\n");
+                    if (position !== -1) {
+                        data = data.substr(position + 1);
+                    } else {
+                        inProgress = false;
+                        resolve();
+                    }
+                } while (i < lines && inProgress);
+            });
 
-            fs.writeFile(filePath, data, function (err2) {
-                if (err2) {
-                    cb && cb(err2)
-                }
-                cb && cb()
+            deleteLines.then(function () {
+                fs.writeFile(filePath, data, function (err2) {
+                    if (err2) {
+                        cb && cb(err2)
+                    }
+                    cb && cb()
+                });
             });
         } else {
             // eslint-disable-next-line no-console
