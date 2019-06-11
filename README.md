@@ -83,11 +83,11 @@ input
 ## :tada: Small File Usage Example
 
 ```javascript
-var { deletePartialSync } = require('node-delete-partial');
+var { deletePartials } = require('node-delete-partial');
 
 var filePath = process.cwd() + '/file.txt';
 
-deletePartialSync(filePath, { lines: 5 }, function (err) {
+deletePartials(filePath, { lines: 5 }, function (err) {
     if (err) {
         console.log(err);
     }
@@ -120,7 +120,7 @@ lines | number | NO | Delete the number of lines from the beginning of the file.
 
 <br/>
 
-### :large_blue_diamond: ``deletePartialSync(path[, options], callback)``
+### :large_blue_diamond: ``deletePartials(path[, options], callback)``
 
 <br/>
 
