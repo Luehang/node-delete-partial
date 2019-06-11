@@ -90,7 +90,7 @@ function deletePartialSync (arg1, arg2, arg3) {
             data = data.toString();
             // console.log(data.split("\n").length)
 
-            const deleteLines = new Promise(function (resolve, reject) {
+            // const deleteLines = new Promise(function (resolve, reject) {
                 var i = 0;
                 var inProgress = true;
                 do {
@@ -100,19 +100,19 @@ function deletePartialSync (arg1, arg2, arg3) {
                         data = data.substr(position + 1);
                     } else {
                         inProgress = false;
-                        resolve();
+                        // resolve();
                     }
                 } while (i < lines && inProgress);
-            });
+            // });
 
-            deleteLines.then(function () {
+            // deleteLines.then(function () {
                 fs.writeFile(filePath, data, function (err2) {
                     if (err2) {
                         cb && cb(err2)
                     }
                     cb && cb()
                 });
-            });
+            // });
         } else {
             // eslint-disable-next-line no-console
             cb && cb(err)
@@ -132,7 +132,7 @@ function deletePartials (arg1, arg2, arg3) {
             data = data.toString();
             // console.log(data.split("\n").length)
 
-            const deleteLines = new Promise(function (resolve, reject) {
+            // const deleteLines = new Promise(function (resolve, reject) {
                 var i = 0;
                 var inProgress = true;
                 do {
@@ -142,19 +142,19 @@ function deletePartials (arg1, arg2, arg3) {
                         data = data.substr(position + 1);
                     } else {
                         inProgress = false;
-                        resolve();
+                        // resolve();
                     }
                 } while (i < lines && inProgress);
-            });
+            // });
 
-            deleteLines.then(function () {
+            // deleteLines.then(function () {
                 fs.writeFile(filePath, data, function (err2) {
                     if (err2) {
                         cb && cb(err2)
                     }
                     cb && cb()
                 });
-            });
+            // });
         } else {
             // eslint-disable-next-line no-console
             cb && cb(err)

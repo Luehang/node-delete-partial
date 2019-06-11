@@ -91,7 +91,7 @@ deletePartials(filePath, { lines: 5 }, function (err) {
     if (err) {
         console.log(err);
     }
-    console.log("Completed");
+    console.log('Completed');
 });
 ```
 
