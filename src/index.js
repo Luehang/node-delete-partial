@@ -51,12 +51,17 @@ function deleteLine (filePath, options = {}) {
             data = data.toString();
             // console.log(data.split("\n").length)
 
-            for (var i = 0; i < lines; i++) {
+            var i = 0;
+            var inProgress = true;
+            do {
+                i++
                 var position = data.toString().indexOf("\n");
                 if (position !== -1) {
                     data = data.substr(position + 1);
+                } else {
+                    inProgress = false;
                 }
-            }
+            } while (i < lines && inProgress);
 
             fs.writeFile(filePath, data, function (err2) {
                 if (err2) {
@@ -83,12 +88,17 @@ function deletePartialSync (arg1, arg2, arg3) {
             data = data.toString();
             // console.log(data.split("\n").length)
 
-            for (var i = 0; i < lines; i++) {
+            var i = 0;
+            var inProgress = true;
+            do {
+                i++;
                 var position = data.toString().indexOf("\n");
                 if (position !== -1) {
                     data = data.substr(position + 1);
+                } else {
+                    inProgress = false;
                 }
-            }
+            } while (i < lines && inProgress);
 
             fs.writeFile(filePath, data, function (err2) {
                 if (err2) {
