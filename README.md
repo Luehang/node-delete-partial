@@ -67,7 +67,7 @@ var output = fs.createWriteStream(__dirname + '/output.txt');
 
 input
     // delete 5 lines from beginning of file
-    .pipe(deletePartialStream({ lines: 5 }))
+    .pipe(deletePartialStream(5))
     .pipe(output);
 ```
 
@@ -103,7 +103,7 @@ deletePartial(filePath, { lines: 5 });
 
 <br/>
 
-### :large_blue_diamond: ``deletePartialStream(options)``
+### :large_blue_diamond: ``deletePartialStream(lines)``
 
 <br/>
 
@@ -111,11 +111,7 @@ deletePartial(filePath, { lines: 5 });
 
 Name | Type | Required | Description
 ------ | ------ | ------ | ------
-options | object | NO | See below.
-
-Valid options keys are:
-
-- "lines" (number) - Delete the number of lines from the beginning of the file. Default is `1`.
+lines | number | NO | Delete the number of lines from the beginning of the file. Default is `1`.
 
 <br/>
 

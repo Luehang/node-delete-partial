@@ -4,8 +4,7 @@ var Transform = require("stream").Transform;
 var util      = require("util");
 var fs        = require("fs");
 
-function DeleteLineStream(options) {
-    var numOfLines = options.lines;
+function DeleteLineStream(numOfLines) {
     if (!(this instanceof DeleteLineStream)) {
         return new DeleteLineStream(numOfLines);
     }
