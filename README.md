@@ -111,7 +111,7 @@ deletePartial(filePath, { lines: 5 });
 
 Name | Type | Required | Description
 ------ | ------ | ------ | ------
-options | number | NO | See below.
+options | object | NO | See below.
 
 Valid options keys are:
 
@@ -128,7 +128,7 @@ Valid options keys are:
 Name | Type | Required | Description
 ------ | ------ | ------ | ------
 filePath | number | YES | File to delete from and update.
-options | number | NO | See below.
+options | object | NO | See below.
 
 Valid options keys are:
 
