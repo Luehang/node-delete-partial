@@ -87,7 +87,7 @@ var { deletePartialSync } = require('node-delete-partial');
 
 var filePath = process.cwd() + '/file.txt';
 
-deletePartialSync(filePath, { lines: 5 }, (err) => {
+deletePartialSync(filePath, { lines: 5 }, function (err) {
     if (err) {
         console.log(err);
     }
