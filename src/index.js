@@ -4,6 +4,7 @@ var Transform = require("stream").Transform;
 var util      = require("util");
 var fs        = require("fs");
 
+// deletePartial.DeleteLineStream(lines)
 function DeleteLineStream(numOfLines) {
     if (!(this instanceof DeleteLineStream)) {
         return new DeleteLineStream(numOfLines);
@@ -39,7 +40,10 @@ DeleteLineStream.prototype._transform = function (chunk, encoding, done) {
     done();
 };
 
+// depreciated deletePartial.deleteLine(options)
 function deleteLine (filePath, options = {}) {
+    // eslint-disable-next-line no-console
+    console.warn("node-delete-partial", "'deletePartial' will be depreciated in future releases. Please use 'deletePartialSync'...");
     var lines = options.lines || 1;
 
     fs.readFile(filePath, function (err, data) {
@@ -67,7 +71,40 @@ function deleteLine (filePath, options = {}) {
     });
 }
 
+// deletePartial.deletePartialSync(path[, options], cb)
+function deletePartialSync (arg1, arg2, arg3) {
+    var filePath = typeof arg1 === "string" ? arg1 : undefined;
+    var options = typeof arg2 === "object" ? arg2 : {};
+    var cb = typeof arg3 === "function" ? arg3 : undefined;
+    var lines = options.lines || 1;
+
+    fs.readFile(filePath, function (err, data) {
+        if (!err) {
+            data = data.toString();
+            // console.log(data.split("\n").length)
+
+            for (var i = 0; i < lines; i++) {
+                var position = data.toString().indexOf("\n");
+                if (position !== -1) {
+                    data = data.substr(position + 1);
+                }
+            }
+
+            fs.writeFile(filePath, data, function (err2) {
+                if (err2) {
+                    cb && cb(err2)
+                }
+                cb && cb()
+            });
+        } else {
+            // eslint-disable-next-line no-console
+            cb && cb(err)
+        }
+    });
+}
+
 module.exports = {
     deletePartialStream: DeleteLineStream,
+    deletePartialSync: deletePartialSync,
     deletePartial: deleteLine
 };
