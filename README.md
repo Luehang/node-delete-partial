@@ -62,8 +62,8 @@ $ yarn add node-delete-partial
 var { deletePartialStream } = require('node-delete-partial');
 var fs = require('fs');
 
-var input = fs.createReadStream(__dirname + '/input.txt');
-var output = fs.createWriteStream(__dirname + '/output.txt');
+var input = fs.createReadStream(process.cwd() + '/input.txt');
+var output = fs.createWriteStream(process.cwd() + '/output.txt');
 
 input
     // delete 5 lines from beginning of file
@@ -83,11 +83,16 @@ input
 ## :tada: Small File Usage Example
 
 ```javascript
-var { deletePartial } = require('node-delete-partial');
+var { deletePartialSync } = require('node-delete-partial');
 
-var filePath = __dirname + '/file.txt';
+var filePath = process.cwd() + '/file.txt';
 
-deletePartial(filePath, { lines: 5 });
+deletePartialSync(filePath, { lines: 5 }, (err) => {
+    if (err) {
+        console.log(err);
+    }
+    console.log("Completed");
+});
 ```
 
 <br/>
@@ -115,7 +120,7 @@ lines | number | NO | Delete the number of lines from the beginning of the file.
 
 <br/>
 
-### :large_blue_diamond: ``deletePartial(filePath, options)``
+### :large_blue_diamond: ``deletePartialSync(path[, options], callback)``
 
 <br/>
 
@@ -123,8 +128,9 @@ lines | number | NO | Delete the number of lines from the beginning of the file.
 
 Name | Type | Required | Description
 ------ | ------ | ------ | ------
-filePath | number | YES | File to delete from and update.
-options | object | NO | See below.
+path | string | YES | File to delete from and update.
+options | Object | NO | See below.
+callback | Function | NO | The callback gets one argument (err).
 
 Valid options keys are:
 
