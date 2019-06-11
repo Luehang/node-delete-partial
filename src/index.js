@@ -2,6 +2,7 @@
 
 var Transform = require("stream").Transform;
 var util      = require("util");
+var fs        = require("fs");
 
 function DeleteLineStream(options) {
     var numOfLines = options.lines;
@@ -39,18 +40,16 @@ DeleteLineStream.prototype._transform = function (chunk, encoding, done) {
     done();
 };
 
-var fs = require('fs');
-
 function deleteLine (filePath, options = {}) {
     var lines = options.lines || 1;
 
     fs.readFile(filePath, function (err, data) {
         if (!err) {
             data = data.toString();
-            // console.log(data.split('\n').length)
+            // console.log(data.split("\n").length)
 
             for (var i = 0; i < lines; i++) {
-                var position = data.toString().indexOf('\n');
+                var position = data.toString().indexOf("\n");
                 if (position !== -1) {
                     data = data.substr(position + 1);
                 }
