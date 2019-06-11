@@ -130,7 +130,7 @@ Name | Type | Required | Description
 ------ | ------ | ------ | ------
 path | string | YES | File to delete from and update.
 options | Object | NO | See below.
-callback | Function | NO | The callback gets one argument (err).
+callback | Function | NO | The callback gets one argument `(err)`.
 
 Valid options keys are:
 

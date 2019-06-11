@@ -40,10 +40,10 @@ DeleteLineStream.prototype._transform = function (chunk, encoding, done) {
     done();
 };
 
-// depreciated deletePartial.deleteLine(options)
+// deprecated deletePartial.deleteLine(options)
 function deleteLine (filePath, options = {}) {
     // eslint-disable-next-line no-console
-    console.warn("node-delete-partial", "'deletePartial' will be depreciated in future releases. Please use 'deletePartialSync'...");
+    console.warn("node-delete-partial", "'deletePartial' will be deprecated in future releases. Please use 'deletePartialSync'...");
     var lines = options.lines || 1;
 
     fs.readFile(filePath, function (err, data) {
