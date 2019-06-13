@@ -8,6 +8,8 @@
 
 An easy and simple to use Node module to efficiently remove the first X number of lines from an inputstream. It uses streams, which means it doesn't need to load whole files in memory, so it is way more efficient and fast, as well can work on very large files without filling memory on the hardware.
 
+Learn more about the installation and how to use this package in the updated [documentation](https://luehangs.site/lue_hang/projects/node-delete-partial) page.
+
 <br/>
 <br/>
 <br/>
