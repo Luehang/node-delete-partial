@@ -1,4 +1,4 @@
-<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LueHsoft"/></a>
+<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LueHsoft LueH LABS Lue Hang luehang"/></a>
 <br/>
 <br/>
 
@@ -54,7 +54,7 @@ $ yarn add node-delete-partial
 
 <br/>
 <br/>
-<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LueHsoft"/></a>
+<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LueHsoft LueH LABS Lue Hang luehang"/></a>
 <br/>
 <br/>
 
@@ -182,7 +182,7 @@ Not sure where to start, or a beginner? Take a look at the [issues page](https:/
 
 <br/>
 <br/>
-<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LueHsoft"/></a>
+<a href="https://luehangs.site"><img src="https://luehangs.site/images/lh-blog-strip.jpg" alt="LueHsoft LueH LABS Lue Hang luehang"/></a>
 <br/>
 <br/>
 
